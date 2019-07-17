@@ -22,7 +22,7 @@ class MicropostsController < ApplicationController
 
   private
 
-  def micropost_params
+  def micropost_paramsdef micropost_params
     params.require(:micropost).permit(:content)
   end
 
@@ -34,14 +34,5 @@ class MicropostsController < ApplicationController
   end
 end
 
-  def micropost_params
-    params.require(:micropost).permit(:content)
-  end
-  
-  def correct_user
-    @micropost = current_user.microposts.find_by(id: params[:id])
-    unless @micropost
-      redirect_to root_url
-    end
-  end
+
 
